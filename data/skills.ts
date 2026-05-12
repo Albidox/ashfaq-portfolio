@@ -1,0 +1,16 @@
+export const skills = [
+  "Java",
+  "Spring Boot",
+  "PostgreSQL",
+  "REST APIs",
+  "Postman",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Selenium",
+  "Playwright",
+  "Git",
+  "GitHub",
+  "Codex",
+  "Gemini",
+];
