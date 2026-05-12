@@ -8,6 +8,7 @@ import { ContactMethodCard } from "@/components/contact/ContactMethodCard";
 import { WhatsAppButton } from "@/components/contact/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { contact } from "@/data/contact";
+import { createGmailComposeUrl, createWhatsAppUrl } from "@/lib/contact-links";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -16,7 +17,11 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const whatsappUrl = `https://wa.me/${contact.whatsapp}`;
+  const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
+  const emailUrl = createGmailComposeUrl({
+    to: contact.email,
+    subject: "Portfolio inquiry from website visitor",
+  });
 
   return (
     <main className="min-h-screen bg-slate-950">
@@ -26,7 +31,7 @@ export default function ContactPage() {
         <Container>
           <SectionHeading
             eyebrow="Contact"
-            title="Let’s discuss your website, API, dashboard, or automation idea"
+            title="Let's discuss your website, API, dashboard, or automation idea"
             description="Start with a small clear milestone. You can contact me through email, WhatsApp, LinkedIn, or GitHub."
           />
 
@@ -38,7 +43,7 @@ export default function ContactPage() {
               variant="outline"
               className="border-white/20 bg-transparent text-white hover:bg-white/10"
             >
-              <a href={`mailto:${contact.email}`}>
+              <a href={emailUrl} target="_blank" rel="noreferrer">
                 <Mail className="mr-2 h-4 w-4" />
                 Email Me
               </a>
@@ -54,7 +59,7 @@ export default function ContactPage() {
               icon={<Mail className="h-6 w-6" />}
               title="Email"
               description="Best for project details, requirements, and formal communication."
-              href={`mailto:${contact.email}`}
+              href={emailUrl}
               label="Send email"
             />
 
@@ -92,7 +97,7 @@ export default function ContactPage() {
               <SectionHeading
                 eyebrow="Project inquiry"
                 title="Tell me what you want to build"
-                description="Use this form to prepare an email with your project details. For version 1, this opens your email app instead of storing data in a backend."
+                description="Use this form to prepare a prefilled email with your project details. It opens Gmail in your browser with a mailto fallback."
                 align="left"
                 className="mx-0"
               />
@@ -103,11 +108,11 @@ export default function ContactPage() {
                 </h3>
 
                 <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
-                  <li>• Fix a broken website button or form</li>
-                  <li>• Create a small business landing page</li>
-                  <li>• Build a Spring Boot API module</li>
-                  <li>• Create an admin dashboard screen</li>
-                  <li>• Prepare Postman API tests or automation scripts</li>
+                  <li>- Fix a broken website button or form</li>
+                  <li>- Create a small business landing page</li>
+                  <li>- Build a Spring Boot API module</li>
+                  <li>- Create an admin dashboard screen</li>
+                  <li>- Prepare Postman API tests or automation scripts</li>
                 </ul>
               </div>
             </div>

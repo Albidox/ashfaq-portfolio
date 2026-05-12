@@ -3,9 +3,14 @@ import { GitBranch, Link as LinkIcon, Mail, MessageCircle } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/ui/button";
 import { contact } from "@/data/contact";
+import { createGmailComposeUrl, createWhatsAppUrl } from "@/lib/contact-links";
 
 export function ContactCTA() {
-  const whatsappUrl = `https://wa.me/${contact.whatsapp}`;
+  const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
+  const emailUrl = createGmailComposeUrl({
+    to: contact.email,
+    subject: "Portfolio inquiry from website visitor",
+  });
 
   return (
     <section className="py-20">
@@ -25,7 +30,7 @@ export function ContactCTA() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-300">
-            Let’s discuss your requirement and start with a small clear milestone.
+            Let&apos;s discuss your requirement and start with a small clear milestone.
             You can contact me through email, WhatsApp, LinkedIn, or GitHub.
           </p>
 
@@ -35,7 +40,7 @@ export function ContactCTA() {
               size="lg"
               className="bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-400/20 hover:bg-cyan-300"
             >
-              <a href={`mailto:${contact.email}`}>
+              <a href={emailUrl} target="_blank" rel="noreferrer">
                 <Mail className="mr-2 h-4 w-4" />
                 Email Me
               </a>

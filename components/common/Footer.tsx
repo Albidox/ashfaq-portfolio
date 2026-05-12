@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { GitBranch, Link as LinkIcon, Mail, MessageCircle } from "lucide-react";
 
+import { Container } from "@/components/common/Container";
 import { contact } from "@/data/contact";
 import { siteConfig } from "@/data/site";
-import { Container } from "@/components/common/Container";
+import { createGmailComposeUrl, createWhatsAppUrl } from "@/lib/contact-links";
 
 const footerLinks = [
   { label: "Services", href: "/services" },
@@ -14,7 +15,11 @@ const footerLinks = [
 ];
 
 export function Footer() {
-  const whatsappUrl = `https://wa.me/${contact.whatsapp}`;
+  const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
+  const emailUrl = createGmailComposeUrl({
+    to: contact.email,
+    subject: "Portfolio inquiry from website visitor",
+  });
 
   return (
     <footer className="border-t border-white/10 bg-slate-950">
@@ -52,7 +57,9 @@ export function Footer() {
 
             <div className="mt-4 flex flex-col gap-3">
               <a
-                href={`mailto:${contact.email}`}
+                href={emailUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-cyan-300"
               >
                 <Mail className="h-4 w-4" />

@@ -5,7 +5,7 @@ export const siteConfig = {
     "I help small businesses and startups build websites, backend APIs, admin dashboards, and automation tools using Java, Spring Boot, React, PostgreSQL, and testing.",
   location: "India",
   role: "Java Backend Developer",
-  siteUrl: "https://ashfaq-portfolio.netlify.app",
+  siteUrl: "https://sk-ashfaq-portfolio.netlify.app",
   keywords: [
     "Sk Ashfaq Bux",
     "Java Backend Developer",

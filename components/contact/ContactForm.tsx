@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { contact } from "@/data/contact";
+import { createGmailComposeUrl, createMailtoUrl } from "@/lib/contact-links";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -26,13 +27,30 @@ export function ContactForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const subject = encodeURIComponent(`Freelance project inquiry from ${name || "website visitor"}`);
+    const subject = `Freelance project inquiry from ${name || "website visitor"}`;
+    const body =
+      `Name: ${name}\n` +
+      `Email: ${email}\n` +
+      `Project Type: ${projectType}\n` +
+      `Budget: ${budget}\n\n` +
+      `Message:\n${message}`;
 
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nProject Type: ${projectType}\nBudget: ${budget}\n\nMessage:\n${message}`
-    );
+    const gmailUrl = createGmailComposeUrl({
+      to: contact.email,
+      subject,
+      body,
+    });
+    const mailtoUrl = createMailtoUrl({
+      to: contact.email,
+      subject,
+      body,
+    });
 
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
+    const openedWindow = window.open(gmailUrl, "_blank", "noopener,noreferrer");
+
+    if (!openedWindow) {
+      window.location.href = mailtoUrl;
+    }
   }
 
   return (
@@ -40,7 +58,8 @@ export function ContactForm() {
       <CardContent className="p-6 sm:p-8">
         <h2 className="text-2xl font-bold text-white">Send a project inquiry</h2>
         <p className="mt-3 text-sm leading-6 text-slate-300">
-          Fill this form and it will open your email app with the message prepared.
+          Fill this form and it opens a prefilled Gmail compose screen, with a
+          mailto fallback if popups are blocked.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-5">
@@ -100,10 +119,10 @@ export function ContactForm() {
                   <SelectValue placeholder="Select budget range" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Below ₹5,000">Below ₹5,000</SelectItem>
-                  <SelectItem value="₹5,000 - ₹10,000">₹5,000 - ₹10,000</SelectItem>
-                  <SelectItem value="₹10,000 - ₹20,000">₹10,000 - ₹20,000</SelectItem>
-                  <SelectItem value="₹20,000+">₹20,000+</SelectItem>
+                  <SelectItem value="Below INR 5,000">Below INR 5,000</SelectItem>
+                  <SelectItem value="INR 5,000 - INR 10,000">INR 5,000 - INR 10,000</SelectItem>
+                  <SelectItem value="INR 10,000 - INR 20,000">INR 10,000 - INR 20,000</SelectItem>
+                  <SelectItem value="INR 20,000+">INR 20,000+</SelectItem>
                   <SelectItem value="Not sure yet">Not sure yet</SelectItem>
                 </SelectContent>
               </Select>

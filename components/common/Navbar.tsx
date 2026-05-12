@@ -3,18 +3,20 @@
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
-import { contact } from "@/data/contact";
-import { siteConfig } from "@/data/site";
+import { Container } from "@/components/common/Container";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Container } from "@/components/common/Container";
+import { contact } from "@/data/contact";
+import { siteConfig } from "@/data/site";
+import { createWhatsAppUrl } from "@/lib/contact-links";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -26,7 +28,7 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const whatsappUrl = `https://wa.me/${contact.whatsapp}`;
+  const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
@@ -55,7 +57,11 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Button asChild variant="outline" className="border-cyan-300/30 bg-transparent text-cyan-200 hover:bg-cyan-300/10 hover:text-cyan-100">
+            <Button
+              asChild
+              variant="outline"
+              className="border-cyan-300/30 bg-transparent text-cyan-200 hover:bg-cyan-300/10 hover:text-cyan-100"
+            >
               <a href={whatsappUrl} target="_blank" rel="noreferrer">
                 Start a Project
               </a>
@@ -71,26 +77,30 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
 
-              <SheetContent side="right" className="border-white/10 bg-slate-950 text-white">
-  <SheetHeader>
-    <SheetTitle className="sr-only">Navigation menu</SheetTitle>
-    <SheetDescription className="sr-only">
-      Main navigation links for the portfolio website.
-    </SheetDescription>
-  </SheetHeader>
+              <SheetContent
+                side="right"
+                className="w-[88vw] max-w-[360px] border-white/10 bg-slate-950/98 p-0 text-white"
+              >
+                <SheetHeader className="px-6 pb-2 pt-5">
+                  <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+                  <SheetDescription className="sr-only">
+                    Main navigation links for the portfolio website.
+                  </SheetDescription>
+                </SheetHeader>
 
-  <div className="mt-8 flex flex-col gap-5">
+                <div className="flex h-full max-h-[calc(100vh-80px)] flex-col gap-5 overflow-y-auto px-6 pb-6 pt-4">
                   {navItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="text-base font-medium text-slate-200 transition hover:text-cyan-300"
-                    >
-                      {item.label}
-                    </Link>
+                    <SheetClose key={item.href} asChild>
+                      <Link
+                        href={item.href}
+                        className="text-base font-medium text-slate-200 transition hover:text-cyan-300"
+                      >
+                        {item.label}
+                      </Link>
+                    </SheetClose>
                   ))}
 
-                  <Button asChild className="mt-4 bg-cyan-400 text-slate-950 hover:bg-cyan-300">
+                  <Button asChild className="mt-2 bg-cyan-400 text-slate-950 hover:bg-cyan-300">
                     <a href={whatsappUrl} target="_blank" rel="noreferrer">
                       Start a Project
                     </a>

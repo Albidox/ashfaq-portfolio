@@ -5,9 +5,10 @@ import { Container } from "@/components/common/Container";
 import { Button } from "@/components/ui/button";
 import { contact } from "@/data/contact";
 import { skills } from "@/data/skills";
+import { createWhatsAppUrl } from "@/lib/contact-links";
 
 export function HeroSection() {
-  const whatsappUrl = `https://wa.me/${contact.whatsapp}`;
+  const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
 
   return (
     <section className="relative overflow-hidden border-b border-white/10 py-24 sm:py-32">

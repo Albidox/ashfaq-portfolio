@@ -5,6 +5,7 @@ import { Container } from "@/components/common/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { contact } from "@/data/contact";
+import { createGmailComposeUrl, createWhatsAppUrl } from "@/lib/contact-links";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -24,7 +25,11 @@ const resumeHighlights = [
 ];
 
 export default function ResumePage() {
-  const whatsappUrl = `https://wa.me/${contact.whatsapp}`;
+  const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
+  const emailUrl = createGmailComposeUrl({
+    to: contact.email,
+    subject: "Resume request from portfolio website",
+  });
 
   return (
     <main className="min-h-screen bg-slate-950">
@@ -64,7 +69,7 @@ export default function ResumePage() {
                 variant="outline"
                 className="border-white/20 bg-transparent text-white hover:bg-white/10"
               >
-                <a href={`mailto:${contact.email}`}>
+                <a href={emailUrl} target="_blank" rel="noreferrer">
                   <Mail className="mr-2 h-4 w-4" />
                   Request Resume
                 </a>
