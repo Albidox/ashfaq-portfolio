@@ -10,7 +10,7 @@ import { createGmailComposeUrl, createWhatsAppUrl } from "@/lib/contact-links";
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Freelancing-focused resume of Sk Ashfaq Bux highlighting Java backend development, Spring Boot APIs, PostgreSQL, testing, automation, and frontend support.",
+    "Download the freelancing-focused resume of Sk Ashfaq Bux highlighting Java backend development, Spring Boot APIs, PostgreSQL, testing, automation, and frontend support.",
 };
 
 const resumeHighlights = [
@@ -28,7 +28,7 @@ export default function ResumePage() {
   const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
   const emailUrl = createGmailComposeUrl({
     to: contact.email,
-    subject: "Resume request from portfolio website",
+    subject: "Resume inquiry from portfolio website",
   });
 
   return (
@@ -39,8 +39,8 @@ export default function ResumePage() {
         <Container>
           <SectionHeading
             eyebrow="Resume"
-            title="Freelancing-focused resume is being prepared"
-            description="This resume will highlight my backend development, API work, testing, automation, and practical freelance services."
+            title="Download My Freelancing Resume"
+            description="A focused resume for freelance website, backend API, admin dashboard, testing, and automation work."
           />
 
           <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-center sm:p-8">
@@ -49,19 +49,21 @@ export default function ResumePage() {
             </div>
 
             <h2 className="mt-6 text-2xl font-bold text-white">
-              New resume coming soon
+              Sk Ashfaq Bux - Freelance Resume
             </h2>
 
             <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-300">
-              I already have a resume, but this portfolio will use a new version focused
-              on freelance work, small business projects, backend APIs, dashboards, and
-              testing automation.
+              This resume highlights my Java backend development, Spring Boot APIs,
+              PostgreSQL, testing, automation, and practical freelance services for
+              small businesses and startups.
             </p>
 
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <Button disabled className="bg-slate-800 text-slate-500">
-                <Download className="mr-2 h-4 w-4" />
-                Download Coming Soon
+              <Button asChild className="bg-cyan-400 text-slate-950 hover:bg-cyan-300">
+                <a href="/resume/Sk_Ashfaq_Bux_Freelance_Resume.pdf" download>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Resume
+                </a>
               </Button>
 
               <Button
@@ -71,7 +73,7 @@ export default function ResumePage() {
               >
                 <a href={emailUrl} target="_blank" rel="noreferrer">
                   <Mail className="mr-2 h-4 w-4" />
-                  Request Resume
+                  Email Me
                 </a>
               </Button>
 
@@ -90,8 +92,8 @@ export default function ResumePage() {
         <Container>
           <SectionHeading
             eyebrow="Resume focus"
-            title="What the new resume will highlight"
-            description="The resume will be aligned with the same services shown on this portfolio website."
+            title="What this resume highlights"
+            description="The resume is aligned with the same freelance services shown on this portfolio website."
           />
 
           <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
