@@ -6,7 +6,6 @@ import { ProblemSolutionSection } from "@/components/sections/ProblemSolutionSec
 import { ProjectsPreview } from "@/components/sections/ProjectsPreview";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { TechStackStrip } from "@/components/sections/TechStackStrip";
-import { WhyWorkWithMeSection } from "@/components/sections/WhyWorkWithMeSection";
 
 export default function HomePage() {
   return (
@@ -23,15 +22,11 @@ export default function HomePage() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <ProjectsPreview />
-      </AnimatedSection>
-
-      <AnimatedSection>
         <HowIWorkSection />
       </AnimatedSection>
 
       <AnimatedSection>
-        <WhyWorkWithMeSection />
+        <ProjectsPreview />
       </AnimatedSection>
 
       <AnimatedSection>

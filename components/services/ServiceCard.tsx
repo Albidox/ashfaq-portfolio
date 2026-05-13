@@ -1,18 +1,9 @@
-import {
-  ArrowRight,
-  Bug,
-  Globe,
-  LayoutDashboard,
-  LucideIcon,
-  Server,
-  Sparkles,
-  Wrench,
-} from "lucide-react";
+import { ArrowRight, Bug, Globe, LayoutDashboard, LucideIcon, Server, Sparkles, Wrench } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { GlassPanel } from "@/components/premium/GlassPanel";
+import type { ServiceItem } from "@/data/services";
 
-const iconMap: Record<string, LucideIcon> = {
+const iconMap: Record<ServiceItem["icon"], LucideIcon> = {
   globe: Globe,
   wrench: Wrench,
   server: Server,
@@ -22,56 +13,45 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 type ServiceCardProps = {
-  service: {
-    title: string;
-    description: string;
-    includes: string[];
-    startingPrice: string;
-    icon: string;
-  };
+  service: ServiceItem;
 };
 
 export function ServiceCard({ service }: ServiceCardProps) {
-  const Icon = iconMap[service.icon] ?? Sparkles;
+  const Icon = iconMap[service.icon];
 
   return (
-    <Card className="card-glow group relative h-full border-white/10 bg-white/[0.03] text-white shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:bg-white/[0.06]">
-      <CardContent className="flex h-full flex-col p-6">
-        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-300 transition group-hover:bg-cyan-300/20">
-          <Icon className="h-6 w-6" />
+    <GlassPanel
+      padding="sm"
+      className="group h-full border-white/10 bg-card/68 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/38"
+    >
+      <div className="flex h-full flex-col">
+        <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-200 transition group-hover:border-cyan-300/45 group-hover:bg-cyan-300/16">
+          <Icon className="h-5 w-5" />
         </div>
 
-        <h3 className="text-xl font-semibold tracking-tight text-white">
-          {service.title}
-        </h3>
+        <h3 className="text-lg font-semibold tracking-tight text-foreground">{service.title}</h3>
+        <p className="mt-3 text-sm leading-6 text-muted-foreground">{service.description}</p>
 
-        <p className="mt-3 text-sm leading-6 text-slate-300">
-          {service.description}
-        </p>
-
-        <div className="mt-5 flex flex-wrap gap-2">
-          {service.includes.slice(0, 4).map((item) => (
-            <Badge
-              key={item}
-              variant="secondary"
-              className="border border-white/10 bg-white/5 text-slate-300 hover:bg-white/10"
-            >
-              {item}
-            </Badge>
+        <ul className="mt-5 space-y-2.5">
+          {service.bullets.map((point) => (
+            <li key={point} className="flex items-start gap-2.5 text-sm text-slate-200">
+              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300/80" />
+              <span>{point}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="mt-auto pt-6">
-          <p className="text-sm font-medium text-cyan-300">
-            {service.startingPrice}
+          <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted-foreground">
+            Stack: {service.stack}
           </p>
 
-          <div className="mt-4 inline-flex items-center text-sm font-medium text-slate-300 transition group-hover:text-cyan-300">
-            Discuss this service
-            <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
-          </div>
+          <p className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-cyan-100 transition group-hover:text-cyan-200">
+            Discuss this
+            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+          </p>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </GlassPanel>
   );
 }

@@ -100,10 +100,11 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-sm text-slate-500">
-          © {new Date().getFullYear()} {siteConfig.name}. Built with Next.js,
+          &copy; {new Date().getFullYear()} {siteConfig.name}. Built with Next.js,
           Tailwind CSS, and clean backend-first thinking.
         </div>
       </Container>
     </footer>
   );
 }
+

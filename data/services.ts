@@ -1,90 +1,82 @@
-export const services = [
+export type ServiceItem = {
+  title: string;
+  description: string;
+  bullets: [string, string, string];
+  stack: string;
+  icon: "server" | "layout-dashboard" | "bug" | "sparkles" | "wrench" | "globe";
+};
+
+export const services: ServiceItem[] = [
   {
-    title: "Business Website Development",
+    title: "Spring Boot Backends",
     description:
-      "Clean, responsive websites for small businesses, portfolios, clinics, coaching centers, and service providers.",
-    includes: [
-      "Landing page",
-      "Contact form",
-      "WhatsApp button",
-      "Mobile responsive design",
-      "Basic SEO setup",
-      "Deployment support",
+      "Build secure backend systems for login, data management, order flows, and internal tools.",
+    bullets: [
+      "REST API design",
+      "PostgreSQL database structure",
+      "Validation and error handling",
     ],
-    startingPrice: "Starting from ₹4,999",
-    icon: "globe",
-  },
-  {
-    title: "Website Fixing & Modification",
-    description:
-      "Bug fixes, layout improvements, new sections, mobile responsiveness, and deployment help.",
-    includes: [
-      "UI fixes",
-      "Button/form fixes",
-      "Mobile layout fixes",
-      "New section/page addition",
-      "Deployment support",
-    ],
-    startingPrice: "Starting from ₹1,000",
-    icon: "wrench",
-  },
-  {
-    title: "Backend API Development",
-    description:
-      "Secure and clean REST APIs using Java, Spring Boot, PostgreSQL, validation, and Postman documentation.",
-    includes: [
-      "Login/signup APIs",
-      "CRUD APIs",
-      "JWT authentication",
-      "Database design",
-      "Validation",
-      "Postman collection",
-    ],
-    startingPrice: "Starting from ₹5,999",
+    stack: "Java \u2022 Spring Boot \u2022 PostgreSQL",
     icon: "server",
   },
   {
-    title: "Admin Dashboard Development",
+    title: "Admin Dashboards",
     description:
-      "Dashboards for managing customers, products, orders, reports, and internal business workflows.",
-    includes: [
-      "Dashboard UI",
-      "Tables and filters",
-      "Forms",
-      "API integration",
-      "Status management",
-      "Basic reports",
+      "Give your team a clean control panel to manage customers, orders, status, and reports confidently.",
+    bullets: [
+      "Role-based dashboard views",
+      "Table and workflow actions",
+      "Connected backend data",
     ],
-    startingPrice: "Starting from ₹7,999",
+    stack: "Next.js \u2022 API Integration \u2022 PostgreSQL",
     icon: "layout-dashboard",
   },
   {
-    title: "Testing & Automation",
+    title: "Testing Automation",
     description:
-      "Website and API testing using Postman, Selenium, Playwright, and automation reports.",
-    includes: [
-      "API testing",
-      "Postman collection",
-      "Bug reports",
-      "Automation scripts",
-      "Screenshots on failure",
-      "Test reports",
+      "Reduce release risk by turning repetitive checks into reliable automated testing flows.",
+    bullets: [
+      "API regression suites",
+      "UI flow automation",
+      "Failure reporting with logs",
     ],
-    startingPrice: "Starting from ₹2,999",
+    stack: "Postman \u2022 Playwright \u2022 Selenium",
     icon: "bug",
   },
   {
-    title: "Small Business Automation",
+    title: "Business Automation Tools",
     description:
-      "Small tools that reduce manual work, such as invoice generators, reports, CSV tools, and FAQ bots.",
-    includes: [
-      "Invoice generator",
-      "Report generator",
-      "CSV/Excel automation",
-      "Form-to-email system",
-      "FAQ bot",
+      "Replace repetitive manual tasks with small tools that save hours each week for your team.",
+    bullets: [
+      "Form-to-workflow automation",
+      "File and report generators",
+      "Notification-ready business scripts",
     ],
-    startingPrice: "Starting from ₹5,999",
+    stack: "Java \u2022 Scripts \u2022 Workflow APIs",
     icon: "sparkles",
+  },
+  {
+    title: "Website Fixes",
+    description:
+      "Fix broken sections, unstable forms, and performance issues before they impact customer trust.",
+    bullets: [
+      "Layout and responsive fixes",
+      "Form, CTA, and navigation repairs",
+      "Deployment and production debugging",
+    ],
+    stack: "Next.js \u2022 Tailwind CSS \u2022 Debugging",
+    icon: "wrench",
+  },
+  {
+    title: "Business Websites",
+    description:
+      "Launch conversion-focused websites that clearly present your service, proof, and contact flow.",
+    bullets: [
+      "Service-focused landing sections",
+      "Lead-ready contact experience",
+      "Performance and mobile checks",
+    ],
+    stack: "Next.js \u2022 Tailwind CSS \u2022 SEO Basics",
+    icon: "globe",
   },
 ];
