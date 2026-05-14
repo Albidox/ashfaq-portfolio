@@ -38,7 +38,10 @@ function ProcessCard({ step }: { step: ProcessStep }) {
 
 export function HowIWorkSection() {
   return (
-    <section id="process" className="border-y border-white/10 bg-background/60 py-20">
+    <section
+      id="process"
+      className="scroll-mt-24 border-y border-white/10 bg-background/60 py-20 lg:scroll-mt-28"
+    >
       <Container>
         <SectionHeading
           eyebrow="Process"

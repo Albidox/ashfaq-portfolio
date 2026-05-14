@@ -14,7 +14,7 @@ export function ContactCTA() {
   });
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="scroll-mt-24 py-20 lg:scroll-mt-28">
       <Container>
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-card/72 p-8 shadow-[0_20px_70px_rgb(2_6_23_/_45%)] backdrop-blur-xl sm:p-12">
           <div className="premium-grid-bg absolute inset-0 -z-20 opacity-35" />

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
@@ -21,93 +20,36 @@ import { createWhatsAppUrl } from "@/lib/contact-links";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Services", href: "/#services", sectionId: "services" },
-  { label: "Process", href: "/#process", sectionId: "process" },
-  { label: "Roadmap", href: "/#roadmap", sectionId: "roadmap" },
-  { label: "Contact", href: "/#contact", sectionId: "contact" },
+  { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
+  { label: "Contact", href: "/contact" },
   { label: "Resume", href: "/resume" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
-  const [activeSection, setActiveSection] = useState<string | null>(null);
   const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
 
-  useEffect(() => {
-    if (pathname !== "/") {
-      return;
+  const isActiveLink = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
     }
-
-    const sectionIds = navItems
-      .map((item) => item.sectionId)
-      .filter((sectionId): sectionId is string => Boolean(sectionId));
-
-    let frameId: number | null = null;
-
-    const updateActiveSection = () => {
-      const scrollMarker = window.scrollY + 140;
-      let currentSection: string | null = null;
-
-      for (const sectionId of sectionIds) {
-        const section = document.getElementById(sectionId);
-        if (!section) {
-          continue;
-        }
-
-        const top = section.offsetTop;
-        const bottom = top + section.offsetHeight;
-
-        if (scrollMarker >= top && scrollMarker < bottom) {
-          currentSection = sectionId;
-          break;
-        }
-      }
-
-      setActiveSection(currentSection);
-    };
-
-    const onScroll = () => {
-      if (frameId !== null) {
-        window.cancelAnimationFrame(frameId);
-      }
-      frameId = window.requestAnimationFrame(updateActiveSection);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("hashchange", updateActiveSection);
-
-    updateActiveSection();
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("hashchange", updateActiveSection);
-      if (frameId !== null) {
-        window.cancelAnimationFrame(frameId);
-      }
-    };
-  }, [pathname]);
-
-  const isActiveLink = (href: string, sectionId?: string) => {
-    if (sectionId) {
-      return pathname === "/" && activeSection === sectionId;
-    }
-
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   return (
-    <header className="sticky top-0 z-50 px-3 pb-2 pt-3 sm:px-5 lg:px-8">
-      <Container className="flex justify-center px-0 sm:px-0 lg:px-0">
+    <header className="sticky top-0 z-50 px-3 pt-2 sm:px-5 sm:pt-3 lg:px-8">
+      <Container className="flex items-center justify-center px-0 sm:px-0 lg:px-0">
         <nav
           aria-label="Main navigation"
-          className="hidden w-full max-w-5xl items-center rounded-full border border-white/10 bg-card/70 px-3 py-2 text-foreground shadow-[0_18px_50px_rgb(2_6_23_/_45%)] backdrop-blur-xl lg:flex"
+          className="hidden w-full max-w-[1100px] items-center rounded-full border border-white/12 bg-card/72 px-2.5 py-1.5 text-foreground shadow-[0_14px_36px_rgb(2_6_23_/_42%)] backdrop-blur-xl lg:flex"
         >
           <Link
             href="/"
-            className="group motion-fast mr-2 flex min-w-0 items-center gap-3 rounded-full px-3 py-2 transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
+            className="group motion-fast mr-1.5 flex min-w-0 items-center gap-2.5 rounded-full px-2.5 py-1.5 transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             aria-label="Go to homepage"
           >
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-300/35 bg-cyan-300/12 text-xs font-semibold text-cyan-100 shadow-[0_0_18px_rgb(0_229_255_/_20%)]">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-cyan-300/35 bg-cyan-300/12 text-[11px] font-semibold text-cyan-100 shadow-[0_0_14px_rgb(0_229_255_/_18%)]">
               SA
             </span>
             <span className="min-w-0 leading-tight">
@@ -120,9 +62,9 @@ export function Navbar() {
             </span>
           </Link>
 
-          <div className="ml-2 flex items-center gap-1">
+          <div className="ml-1.5 flex items-center gap-0.5">
             {navItems.map((item) => {
-              const isActive = isActiveLink(item.href, item.sectionId);
+              const isActive = isActiveLink(item.href);
 
               return (
                 <Link
@@ -130,9 +72,9 @@ export function Navbar() {
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "motion-fast rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background hover:bg-white/5 hover:text-foreground",
+                    "motion-fast rounded-full px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background hover:bg-white/5 hover:text-foreground",
                     isActive &&
-                      "bg-white/8 text-cyan-100 shadow-[inset_0_0_0_1px_rgb(0_229_255_/_30%),0_0_18px_rgb(59_130_246_/_18%)]"
+                      "bg-white/8 text-cyan-100 shadow-[inset_0_0_0_1px_rgb(0_229_255_/_26%),0_0_14px_rgb(59_130_246_/_15%)]"
                   )}
                 >
                   {item.label}
@@ -141,11 +83,11 @@ export function Navbar() {
             })}
           </div>
 
-          <div className="ml-auto pl-3">
+          <div className="ml-auto pl-2">
             <Button
               asChild
               variant="outline"
-              className="motion-fast premium-hover-lift rounded-full border-white/15 bg-white/5 px-4 text-foreground shadow-[0_0_0_1px_rgb(255_255_255_/_6%)] transition hover:border-cyan-300/45 hover:bg-cyan-300/12 hover:text-cyan-100 hover:shadow-[0_0_24px_rgb(0_229_255_/_24%)] focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
+              className="motion-fast premium-hover-lift h-9 rounded-full border-white/15 bg-white/5 px-4 text-sm text-foreground shadow-[0_0_0_1px_rgb(255_255_255_/_6%)] transition hover:border-cyan-300/42 hover:bg-cyan-300/11 hover:text-cyan-100 hover:shadow-[0_0_20px_rgb(0_229_255_/_22%)] focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             >
               <a
                 href={whatsappUrl}
@@ -161,7 +103,7 @@ export function Navbar() {
 
         <nav
           aria-label="Mobile navigation"
-          className="flex w-full items-center justify-between rounded-2xl border border-white/10 bg-card/78 px-3 py-2 text-foreground shadow-[0_16px_45px_rgb(2_6_23_/_45%)] backdrop-blur-xl lg:hidden"
+          className="flex w-full items-center justify-between rounded-2xl border border-white/12 bg-card/80 px-2.5 py-1.5 text-foreground shadow-[0_12px_34px_rgb(2_6_23_/_40%)] backdrop-blur-xl lg:hidden"
         >
           <Link
             href="/"
@@ -200,14 +142,13 @@ export function Navbar() {
               <SheetHeader className="px-6 pb-1 pt-6">
                 <SheetTitle className="text-left text-base">Navigation</SheetTitle>
                 <SheetDescription className="text-left text-muted-foreground">
-                  Browse sections and start a project conversation.
+                  Browse pages and start a project conversation.
                 </SheetDescription>
               </SheetHeader>
 
               <div className="flex h-full max-h-[calc(100vh-94px)] flex-col gap-2 overflow-y-auto px-6 pb-6 pt-4">
                 {navItems.map((item) => {
-                  const isActive = isActiveLink(item.href, item.sectionId);
-
+                  const isActive = isActiveLink(item.href);
                   return (
                     <SheetClose key={item.label} asChild>
                       <Link
@@ -238,15 +179,6 @@ export function Navbar() {
                     Start Project
                   </a>
                 </Button>
-
-                <SheetClose asChild>
-                  <Link
-                    href="/contact"
-                    className="motion-fast premium-hover-lift mt-1 rounded-xl border border-white/10 px-4 py-3 text-center text-sm font-medium text-muted-foreground transition hover:border-accent/40 hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
-                  >
-                    Prefer email? Open Contact page
-                  </Link>
-                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>

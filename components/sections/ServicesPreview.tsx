@@ -9,7 +9,10 @@ import { services } from "@/data/services";
 
 export function ServicesPreview() {
   return (
-    <section id="services" className="border-y border-white/10 bg-background/65 py-20">
+    <section
+      id="services"
+      className="scroll-mt-24 border-y border-white/10 bg-background/65 py-20 lg:scroll-mt-28"
+    >
       <Container>
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading

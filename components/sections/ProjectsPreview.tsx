@@ -71,7 +71,10 @@ function RoadmapCard({
 
 export function ProjectsPreview() {
   return (
-    <section id="roadmap" className="border-y border-white/10 bg-background/55 py-20">
+    <section
+      id="roadmap"
+      className="scroll-mt-24 border-y border-white/10 bg-background/55 py-20 lg:scroll-mt-28"
+    >
       <Container>
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading

@@ -54,13 +54,13 @@ export default function ResumePage() {
             </p>
 
             <h1 className="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Freelance-ready backend developer resume.
+              Download my freelance-ready backend developer resume.
             </h1>
 
             <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Download a focused resume covering Java backend development, Spring
-              Boot APIs, PostgreSQL, testing automation, frontend support, and
-              AI-assisted workflow.
+              Get a focused overview of my Java backend development, Spring Boot
+              APIs, PostgreSQL, testing automation, frontend support, and
+              AI-assisted development workflow.
             </p>
 
             <div className="mt-7 flex flex-wrap justify-center gap-2.5">
@@ -98,8 +98,9 @@ export default function ResumePage() {
                 </h2>
 
                 <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
-                  This resume is designed for freelance website, backend API,
-                  dashboard, testing, and automation work.
+                  This resume gives a quick professional overview of my backend
+                  development skills, testing background, frontend support
+                  ability, and freelance service focus.
                 </p>
 
                 <div className="motion-fast premium-hover-lift mx-auto mt-6 max-w-2xl rounded-2xl border border-white/10 bg-black/20 px-4 py-3 font-mono text-[12px] text-slate-300">
@@ -156,8 +157,12 @@ export default function ResumePage() {
                 What This Resume Proves
               </p>
               <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                Practical delivery fit for modern freelance projects.
+                What this resume proves
               </h2>
+              <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-muted-foreground">
+                This resume highlights the skills I can bring to small business,
+                startup, agency, and freelance development work.
+              </p>
             </div>
 
             <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -187,11 +192,12 @@ export default function ResumePage() {
                   Best Fit
                 </p>
                 <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                  Built for practical business delivery needs.
+                  Best fit for practical development work.
                 </h2>
                 <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-muted-foreground">
-                  Best for small businesses, startups, and agencies needing websites,
-                  backend APIs, dashboards, testing, or automation support.
+                  Suitable for small businesses, startups, agencies, and teams
+                  looking for support with websites, backend APIs, dashboards,
+                  testing, or automation tasks.
                 </p>
               </div>
             </GlassPanel>
@@ -214,11 +220,11 @@ export default function ResumePage() {
                   Quick Intro
                 </p>
                 <h2 className="mt-4 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                  Want the short version first?
+                  Reviewed my resume and want to discuss a project?
                 </h2>
                 <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-muted-foreground">
-                  Message me with your requirement and I&apos;ll tell you whether I can
-                  help with the first milestone.
+                  If my skills match your requirement, you can contact me through
+                  WhatsApp or email and we can discuss the first small milestone.
                 </p>
 
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
