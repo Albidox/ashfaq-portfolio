@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
@@ -20,24 +21,75 @@ import { createWhatsAppUrl } from "@/lib/contact-links";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Services", href: "/services" },
-  { label: "Process", href: "/#process", matchPath: "/" },
-  { label: "Roadmap", href: "/projects", matchPath: "/projects" },
-  { label: "Contact", href: "/contact" },
+  { label: "Services", href: "/#services", sectionId: "services" },
+  { label: "Process", href: "/#process", sectionId: "process" },
+  { label: "Roadmap", href: "/#roadmap", sectionId: "roadmap" },
+  { label: "Contact", href: "/#contact", sectionId: "contact" },
   { label: "Resume", href: "/resume" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
 
-  const isActiveLink = (href: string, matchPath?: string) => {
-    if (matchPath) {
-      return pathname === matchPath;
+  useEffect(() => {
+    if (pathname !== "/") {
+      return;
     }
 
-    if (href === "/") {
-      return pathname === "/";
+    const sectionIds = navItems
+      .map((item) => item.sectionId)
+      .filter((sectionId): sectionId is string => Boolean(sectionId));
+
+    let frameId: number | null = null;
+
+    const updateActiveSection = () => {
+      const scrollMarker = window.scrollY + 140;
+      let currentSection: string | null = null;
+
+      for (const sectionId of sectionIds) {
+        const section = document.getElementById(sectionId);
+        if (!section) {
+          continue;
+        }
+
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+
+        if (scrollMarker >= top && scrollMarker < bottom) {
+          currentSection = sectionId;
+          break;
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    const onScroll = () => {
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+      frameId = window.requestAnimationFrame(updateActiveSection);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("hashchange", updateActiveSection);
+
+    updateActiveSection();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", updateActiveSection);
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
+  }, [pathname]);
+
+  const isActiveLink = (href: string, sectionId?: string) => {
+    if (sectionId) {
+      return pathname === "/" && activeSection === sectionId;
     }
 
     return pathname === href || pathname.startsWith(`${href}/`);
@@ -70,7 +122,7 @@ export function Navbar() {
 
           <div className="ml-2 flex items-center gap-1">
             {navItems.map((item) => {
-              const isActive = isActiveLink(item.href, item.matchPath);
+              const isActive = isActiveLink(item.href, item.sectionId);
 
               return (
                 <Link
@@ -154,7 +206,7 @@ export function Navbar() {
 
               <div className="flex h-full max-h-[calc(100vh-94px)] flex-col gap-2 overflow-y-auto px-6 pb-6 pt-4">
                 {navItems.map((item) => {
-                  const isActive = isActiveLink(item.href, item.matchPath);
+                  const isActive = isActiveLink(item.href, item.sectionId);
 
                   return (
                     <SheetClose key={item.label} asChild>
