@@ -11,14 +11,14 @@ export function ServicesPreview() {
   return (
     <section
       id="services"
-      className="scroll-mt-24 border-y border-white/10 bg-background/65 py-20 lg:scroll-mt-28"
+      className="scroll-mt-24 border-y border-white/10 bg-background/65 py-16 sm:py-18 lg:scroll-mt-28"
     >
       <Container>
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading
             eyebrow="Services"
             title="Business outcomes you can hire me for"
-            description="Practical service blocks designed to improve delivery speed, stability, and day-to-day operations."
+            description="A focused preview of the most requested service outcomes."
             align="left"
             className="mx-0 max-w-4xl"
           />
@@ -35,8 +35,8 @@ export function ServicesPreview() {
           </Button>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {services.slice(0, 3).map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}
         </div>

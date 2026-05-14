@@ -12,6 +12,8 @@ const processIconMap = {
   deployment: Rocket,
 } satisfies Record<ProcessStep["icon"], typeof Brain>;
 
+const homepageProcessSteps = processSteps.slice(0, 3);
+
 function ProcessCard({ step }: { step: ProcessStep }) {
   const Icon = processIconMap[step.icon];
 
@@ -40,22 +42,22 @@ export function HowIWorkSection() {
   return (
     <section
       id="process"
-      className="scroll-mt-24 border-y border-white/10 bg-background/60 py-20 lg:scroll-mt-28"
+      className="scroll-mt-24 border-y border-white/10 bg-background/60 py-16 sm:py-18 lg:scroll-mt-28"
     >
       <Container>
         <SectionHeading
           eyebrow="Process"
           title="A structured workflow built for predictable delivery"
-          description="Simple, professional steps that keep your project clear from planning to launch."
+          description="Compact project flow from planning to tested delivery."
           align="left"
           className="mx-0 max-w-4xl"
         />
 
-        <div className="group/flow relative mt-12 hidden lg:block">
+        <div className="group/flow relative mt-8 hidden lg:block">
           <div className="motion-normal absolute left-8 right-8 top-5 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent transition-opacity group-hover/flow:via-cyan-300/80" />
 
-          <div className="grid grid-cols-4 gap-5">
-            {processSteps.map((step) => (
+          <div className="grid grid-cols-3 gap-5">
+            {homepageProcessSteps.map((step) => (
               <div key={step.title} className="relative pt-10">
                 <span className="absolute left-4 top-0 inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-300/35 bg-cyan-300/14 font-mono text-sm font-semibold text-cyan-100 shadow-[0_0_20px_rgb(0_229_255_/_18%)]">
                   {String(step.step).padStart(2, "0")}
@@ -66,10 +68,10 @@ export function HowIWorkSection() {
           </div>
         </div>
 
-        <div className="group/flow relative mt-10 space-y-4 lg:hidden">
+        <div className="group/flow relative mt-8 space-y-4 lg:hidden">
           <div className="motion-normal absolute bottom-0 left-4 top-3 w-px bg-gradient-to-b from-cyan-300/65 via-cyan-300/35 to-transparent transition-opacity group-hover/flow:via-cyan-300/60" />
 
-          {processSteps.map((step) => (
+          {homepageProcessSteps.map((step) => (
             <div key={step.title} className="relative pl-10">
               <span className="absolute left-0 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-cyan-300/35 bg-cyan-300/14 font-mono text-xs font-semibold text-cyan-100">
                 {String(step.step).padStart(2, "0")}
