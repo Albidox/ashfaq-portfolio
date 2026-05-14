@@ -9,18 +9,25 @@ import { services } from "@/data/services";
 
 export function ServicesPreview() {
   return (
-    <section className="border-y border-white/10 bg-slate-900/40 py-20">
+    <section
+      id="services"
+      className="scroll-mt-24 border-y border-white/10 bg-background/65 py-20 lg:scroll-mt-28"
+    >
       <Container>
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading
             eyebrow="Services"
-            title="What I can build for you"
-            description="Clear freelance services focused on websites, APIs, dashboards, testing, and automation."
+            title="Business outcomes you can hire me for"
+            description="Practical service blocks designed to improve delivery speed, stability, and day-to-day operations."
             align="left"
-            className="mx-0"
+            className="mx-0 max-w-4xl"
           />
 
-          <Button asChild variant="outline" className="border-white/20 bg-transparent text-white hover:bg-white/10">
+          <Button
+            asChild
+            variant="outline"
+            className="border-white/15 bg-white/5 text-foreground hover:border-cyan-300/40 hover:bg-cyan-300/10 hover:text-cyan-100"
+          >
             <Link href="/services">
               View All Services
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -28,8 +35,8 @@ export function ServicesPreview() {
           </Button>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.slice(0, 3).map((service) => (
+        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}
         </div>

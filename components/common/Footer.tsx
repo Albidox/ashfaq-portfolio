@@ -42,7 +42,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-slate-400 transition hover:text-cyan-300"
+                  className="motion-fast rounded-md px-1 py-0.5 text-sm text-slate-400 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950"
                 >
                   {link.label}
                 </Link>
@@ -60,7 +60,7 @@ export function Footer() {
                 href={emailUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-cyan-300"
+                className="motion-fast inline-flex items-center gap-2 rounded-md px-1 py-0.5 text-sm text-slate-400 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950"
               >
                 <Mail className="h-4 w-4" />
                 Email
@@ -70,7 +70,7 @@ export function Footer() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-cyan-300"
+                className="motion-fast inline-flex items-center gap-2 rounded-md px-1 py-0.5 text-sm text-slate-400 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp
@@ -80,7 +80,7 @@ export function Footer() {
                 href={contact.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-cyan-300"
+                className="motion-fast inline-flex items-center gap-2 rounded-md px-1 py-0.5 text-sm text-slate-400 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950"
               >
                 <LinkIcon className="h-4 w-4" />
                 LinkedIn
@@ -90,7 +90,7 @@ export function Footer() {
                 href={contact.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-cyan-300"
+                className="motion-fast inline-flex items-center gap-2 rounded-md px-1 py-0.5 text-sm text-slate-400 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950"
               >
                 <GitBranch className="h-4 w-4" />
                 GitHub
@@ -100,10 +100,11 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-sm text-slate-500">
-          © {new Date().getFullYear()} {siteConfig.name}. Built with Next.js,
+          &copy; {new Date().getFullYear()} {siteConfig.name}. Built with Next.js,
           Tailwind CSS, and clean backend-first thinking.
         </div>
       </Container>
     </footer>
   );
 }
+
