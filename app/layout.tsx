@@ -38,11 +38,20 @@ export const metadata: Metadata = {
     siteName: `${siteConfig.name} Portfolio`,
     title: siteConfig.title,
     description: siteConfig.description,
+    images: [
+      {
+        url: "/icon.svg",
+        width: 512,
+        height: 512,
+        alt: `${siteConfig.name} Portfolio`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
+    images: ["/icon.svg"],
   },
   robots: {
     index: true,

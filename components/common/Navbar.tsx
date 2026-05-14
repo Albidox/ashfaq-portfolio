@@ -52,7 +52,7 @@ export function Navbar() {
         >
           <Link
             href="/"
-            className="group mr-2 flex min-w-0 items-center gap-3 rounded-full px-3 py-2 transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+            className="group motion-fast mr-2 flex min-w-0 items-center gap-3 rounded-full px-3 py-2 transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             aria-label="Go to homepage"
           >
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-300/35 bg-cyan-300/12 text-xs font-semibold text-cyan-100 shadow-[0_0_18px_rgb(0_229_255_/_20%)]">
@@ -78,7 +78,7 @@ export function Navbar() {
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60 hover:bg-white/5 hover:text-foreground",
+                    "motion-fast rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background hover:bg-white/5 hover:text-foreground",
                     isActive &&
                       "bg-white/8 text-cyan-100 shadow-[inset_0_0_0_1px_rgb(0_229_255_/_30%),0_0_18px_rgb(59_130_246_/_18%)]"
                   )}
@@ -93,7 +93,7 @@ export function Navbar() {
             <Button
               asChild
               variant="outline"
-              className="rounded-full border-white/15 bg-white/5 px-4 text-foreground shadow-[0_0_0_1px_rgb(255_255_255_/_6%)] transition hover:-translate-y-px hover:border-cyan-300/45 hover:bg-cyan-300/12 hover:text-cyan-100 hover:shadow-[0_0_24px_rgb(0_229_255_/_24%)] focus-visible:ring-cyan-300/35"
+              className="motion-fast premium-hover-lift rounded-full border-white/15 bg-white/5 px-4 text-foreground shadow-[0_0_0_1px_rgb(255_255_255_/_6%)] transition hover:border-cyan-300/45 hover:bg-cyan-300/12 hover:text-cyan-100 hover:shadow-[0_0_24px_rgb(0_229_255_/_24%)] focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             >
               <a
                 href={whatsappUrl}
@@ -113,7 +113,7 @@ export function Navbar() {
         >
           <Link
             href="/"
-            className="group flex min-w-0 items-center gap-2 rounded-xl px-2 py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+            className="group motion-fast flex min-w-0 items-center gap-2 rounded-xl px-2 py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             aria-label="Go to homepage"
           >
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-cyan-300/35 bg-cyan-300/12 text-[11px] font-semibold text-cyan-100">
@@ -134,7 +134,7 @@ export function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-xl border border-white/10 text-foreground hover:bg-white/10 focus-visible:ring-cyan-300/35"
+                className="motion-fast premium-hover-lift rounded-xl border border-white/10 text-foreground hover:bg-white/10 focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
                 aria-label="Open navigation menu"
               >
                 <Menu className="h-5 w-5" />
@@ -162,7 +162,7 @@ export function Navbar() {
                         href={item.href}
                         aria-current={isActive ? "page" : undefined}
                         className={cn(
-                          "rounded-xl border border-transparent px-4 py-3 text-base font-medium text-foreground transition hover:border-cyan-300/20 hover:bg-white/5 hover:text-cyan-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60",
+                          "motion-fast premium-hover-lift rounded-xl border border-transparent px-4 py-3 text-base font-medium text-foreground transition hover:border-cyan-300/20 hover:bg-white/5 hover:text-cyan-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background",
                           isActive &&
                             "border-cyan-300/30 bg-cyan-300/10 text-cyan-100 shadow-[0_0_20px_rgb(59_130_246_/_18%)]"
                         )}
@@ -175,7 +175,7 @@ export function Navbar() {
 
                 <Button
                   asChild
-                  className="mt-4 h-11 rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+                  className="motion-fast premium-hover-lift mt-4 h-11 rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
                 >
                   <a
                     href={whatsappUrl}
@@ -190,7 +190,7 @@ export function Navbar() {
                 <SheetClose asChild>
                   <Link
                     href="/contact"
-                    className="mt-1 rounded-xl border border-white/10 px-4 py-3 text-center text-sm font-medium text-muted-foreground transition hover:border-accent/40 hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+                    className="motion-fast premium-hover-lift mt-1 rounded-xl border border-white/10 px-4 py-3 text-center text-sm font-medium text-muted-foreground transition hover:border-accent/40 hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
                   >
                     Prefer email? Open Contact page
                   </Link>

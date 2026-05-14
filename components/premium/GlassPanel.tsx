@@ -11,12 +11,14 @@ const paddingClasses = {
 
 type GlassPanelProps = React.ComponentProps<"div"> & {
   glow?: boolean;
+  interactive?: boolean;
   padding?: keyof typeof paddingClasses;
 };
 
 export function GlassPanel({
   className,
   glow = true,
+  interactive = false,
   padding = "md",
   ...props
 }: GlassPanelProps) {
@@ -24,8 +26,9 @@ export function GlassPanel({
     <div
       data-slot="premium-glass-panel"
       className={cn(
-        "rounded-3xl border border-border bg-card/65 text-card-foreground shadow-[0_16px_40px_rgb(2_6_23_/_35%)] backdrop-blur-xl",
+        "motion-normal rounded-3xl border border-border bg-card/65 text-card-foreground shadow-[0_16px_40px_rgb(2_6_23_/_35%)] backdrop-blur-xl",
         glow && "premium-border-glow",
+        interactive && "premium-hover-lift",
         paddingClasses[padding],
         className
       )}

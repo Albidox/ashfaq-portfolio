@@ -39,7 +39,7 @@ export function ContactCTA() {
               <Button
                 asChild
                 size="lg"
-                className="h-11 bg-primary text-primary-foreground shadow-[0_10px_28px_rgb(0_229_255_/_24%)] hover:bg-primary/90"
+                className="motion-fast premium-hover-lift h-11 bg-primary text-primary-foreground shadow-[0_10px_28px_rgb(0_229_255_/_24%)] hover:bg-primary/90"
               >
                 <a href={whatsappUrl} target="_blank" rel="noreferrer">
                   <MessageCircle className="mr-2 h-4 w-4" />
@@ -51,7 +51,7 @@ export function ContactCTA() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-11 border-white/15 bg-white/5 text-foreground hover:border-cyan-300/35 hover:bg-white/10 hover:text-cyan-100"
+                className="motion-fast premium-hover-lift h-11 border-white/15 bg-white/5 text-foreground hover:border-cyan-300/35 hover:bg-white/10 hover:text-cyan-100"
               >
                 <a href={emailUrl}>
                   <Mail className="mr-2 h-4 w-4" />
@@ -63,7 +63,7 @@ export function ContactCTA() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-11 border-white/15 bg-transparent text-foreground hover:border-cyan-300/35 hover:bg-cyan-300/10 hover:text-cyan-100"
+                className="motion-fast premium-hover-lift h-11 border-white/15 bg-transparent text-foreground hover:border-cyan-300/35 hover:bg-cyan-300/10 hover:text-cyan-100"
               >
                 <Link href="/services">View Services</Link>
               </Button>

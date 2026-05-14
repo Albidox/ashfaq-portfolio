@@ -43,7 +43,7 @@ export function HeroSection() {
               {trustBadges.map((badge) => (
                 <div
                   key={badge.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-slate-200"
+                  className="motion-fast premium-hover-lift inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-slate-200"
                 >
                   <badge.icon className="h-3.5 w-3.5 text-cyan-300" />
                   <span>{badge.label}</span>
@@ -55,7 +55,7 @@ export function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="h-11 bg-primary text-primary-foreground shadow-[0_8px_22px_rgb(0_229_255_/_24%)] hover:bg-primary/90"
+                className="motion-fast premium-hover-lift h-11 bg-primary text-primary-foreground shadow-[0_8px_22px_rgb(0_229_255_/_24%)] hover:bg-primary/90"
               >
                 <a href={whatsappUrl} target="_blank" rel="noreferrer">
                   Start a Project
@@ -67,7 +67,7 @@ export function HeroSection() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-11 border-white/15 bg-white/5 text-foreground hover:border-cyan-300/40 hover:bg-cyan-300/10 hover:text-cyan-100"
+                className="motion-fast premium-hover-lift h-11 border-white/15 bg-white/5 text-foreground hover:border-cyan-300/40 hover:bg-cyan-300/10 hover:text-cyan-100"
               >
                 <Link href="/services">View Services</Link>
               </Button>
@@ -75,7 +75,9 @@ export function HeroSection() {
           </div>
 
           <div className="animate-in fade-in-0 slide-in-from-bottom-4 duration-700 mx-auto w-full max-w-[540px] lg:max-w-none lg:scale-100">
-            <TerminalCard className="animate-float-slow" />
+            <div className="animate-pulse-glow rounded-[28px]">
+              <TerminalCard className="animate-float-slow" />
+            </div>
           </div>
         </div>
       </Container>

@@ -27,7 +27,10 @@ export function TerminalCard({ className, payload = defaultPayload }: TerminalCa
   return (
     <GlassPanel
       padding="sm"
-      className={cn("w-full rounded-[24px] border-white/12 bg-card/72", className)}
+      className={cn(
+        "premium-hover-lift motion-normal w-full rounded-[24px] border-white/12 bg-card/72",
+        className
+      )}
     >
       <div className="rounded-2xl border border-white/10 bg-background/88 p-4 sm:p-5">
         <div className="mb-4 flex items-center justify-between gap-3">
@@ -41,7 +44,7 @@ export function TerminalCard({ className, payload = defaultPayload }: TerminalCa
           </p>
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-black/25 p-3 sm:p-4">
+        <div className="motion-normal rounded-xl border border-white/10 bg-black/25 p-3 sm:p-4">
           <pre className="w-full whitespace-pre-wrap break-words font-mono text-[12px] leading-6 text-slate-200 sm:text-[13px]">
 {`{
   "developer": "${payload.developer}",

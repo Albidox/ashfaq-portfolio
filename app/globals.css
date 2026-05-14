@@ -81,6 +81,16 @@
   --sidebar-accent-foreground: #f3f4f6;
   --sidebar-border: rgb(255 255 255 / 10%);
   --sidebar-ring: #3b82f6;
+  --motion-fast: 180ms;
+  --motion-normal: 280ms;
+  --motion-reveal: 520ms;
+  --motion-reduced: 120ms;
+  --motion-ambient-slow: 8s;
+  --motion-ambient-slower: 10s;
+  --motion-ambient-drift: 24s;
+  --motion-marquee: 28s;
+  --motion-cursor: 1s;
+  --motion-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dark {
@@ -200,16 +210,16 @@
 }
 
 .animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
+  animation: float-slow var(--motion-ambient-slow) ease-in-out infinite;
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 5s ease-in-out infinite;
+  animation: pulse-glow var(--motion-ambient-slow) ease-in-out infinite;
 }
 
 .animate-gradient-shift {
   background-size: 200% 200%;
-  animation: gradient-shift 10s ease infinite;
+  animation: gradient-shift var(--motion-ambient-slower) ease infinite;
 }
 
 .animated-grid {
@@ -217,7 +227,7 @@
     linear-gradient(rgb(59 130 246 / 8%) 1px, transparent 1px),
     linear-gradient(90deg, rgb(59 130 246 / 8%) 1px, transparent 1px);
   background-size: 40px 40px;
-  animation: grid-move 20s linear infinite;
+  animation: grid-move var(--motion-ambient-drift) linear infinite;
 }
 
 .premium-grid-bg {
@@ -237,13 +247,13 @@
     center,
     0 0,
     0 0;
-  animation: grid-move 24s linear infinite;
+  animation: grid-move var(--motion-ambient-drift) linear infinite;
 }
 
 .text-gradient {
   background: linear-gradient(90deg, #00e5ff, #38bdf8, #3b82f6);
   background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
+  animation: gradient-shift var(--motion-ambient-slower) ease infinite;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -261,7 +271,7 @@
   border-radius: inherit;
   background: linear-gradient(135deg, rgb(0 229 255 / 35%), rgb(59 130 246 / 25%), transparent 55%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--motion-normal) var(--motion-ease-standard);
 }
 
 .card-glow:hover::before {
@@ -273,9 +283,9 @@
     inset 0 0 0 1px rgb(255 255 255 / 10%),
     0 12px 35px rgb(2 6 23 / 35%);
   transition:
-    box-shadow 220ms ease,
-    border-color 220ms ease,
-    transform 220ms ease;
+    box-shadow var(--motion-fast) var(--motion-ease-standard),
+    border-color var(--motion-fast) var(--motion-ease-standard),
+    transform var(--motion-fast) var(--motion-ease-standard);
 }
 
 .premium-border-glow:hover {
@@ -286,11 +296,11 @@
 }
 
 .premium-cursor-blink {
-  animation: cursor-blink 1s steps(2, end) infinite;
+  animation: cursor-blink var(--motion-cursor) steps(2, end) infinite;
 }
 
 .animate-marquee-scroll {
-  animation: marquee-scroll 28s linear infinite;
+  animation: marquee-scroll var(--motion-marquee) linear infinite;
   will-change: transform;
 }
 
@@ -302,13 +312,37 @@
   opacity: 0;
   transform: translateY(18px);
   transition:
-    opacity 0.45s ease,
-    transform 0.45s ease;
+    opacity var(--motion-reveal) var(--motion-ease-standard),
+    transform var(--motion-reveal) var(--motion-ease-standard);
 }
 
 .fade-up.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.motion-fast {
+  transition-duration: var(--motion-fast);
+  transition-timing-function: var(--motion-ease-standard);
+}
+
+.motion-normal {
+  transition-duration: var(--motion-normal);
+  transition-timing-function: var(--motion-ease-standard);
+}
+
+.premium-hover-lift {
+  transition:
+    transform var(--motion-fast) var(--motion-ease-standard),
+    box-shadow var(--motion-fast) var(--motion-ease-standard);
+}
+
+.premium-hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.ambient-float-soft {
+  animation: float-slow var(--motion-ambient-slow) ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -317,17 +351,44 @@
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: var(--motion-reduced) !important;
     scroll-behavior: auto !important;
+  }
+
+  .animate-float-slow,
+  .animate-pulse-glow,
+  .animate-gradient-shift,
+  .animated-grid,
+  .premium-grid-bg,
+  .premium-cursor-blink,
+  .animate-marquee-scroll,
+  .ambient-float-soft {
+    animation: none !important;
   }
 
   .fade-up {
     opacity: 1;
     transform: none;
+    transition: none;
   }
 
   .animate-marquee-scroll {
-    animation: none;
+    transform: none;
+  }
+
+  .card-glow::before {
+    opacity: 0 !important;
+  }
+
+  .premium-border-glow,
+  .premium-border-glow:hover {
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 10%),
+      0 10px 28px rgb(2 6 23 / 32%) !important;
+  }
+
+  .premium-hover-lift:hover,
+  .premium-border-glow:hover {
     transform: none;
   }
 }

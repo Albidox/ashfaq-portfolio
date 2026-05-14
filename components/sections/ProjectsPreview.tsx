@@ -27,7 +27,7 @@ function RoadmapCard({
     <GlassPanel
       padding="sm"
       className={cn(
-        "group border-white/10 bg-card/70 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/35",
+        "group premium-hover-lift motion-fast border-white/10 bg-card/70 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/35",
         compact ? "h-auto" : "h-full"
       )}
     >
@@ -85,7 +85,7 @@ export function ProjectsPreview() {
           <Button
             asChild
             variant="outline"
-            className="border-white/15 bg-white/5 text-foreground hover:border-cyan-300/40 hover:bg-cyan-300/10 hover:text-cyan-100"
+            className="motion-fast premium-hover-lift border-white/15 bg-white/5 text-foreground hover:border-cyan-300/40 hover:bg-cyan-300/10 hover:text-cyan-100"
           >
             <Link href="/projects">
               View Full Roadmap

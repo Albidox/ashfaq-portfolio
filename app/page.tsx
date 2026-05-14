@@ -13,23 +13,23 @@ export default function HomePage() {
       <HeroSection />
       <TechStackStrip />
 
-      <AnimatedSection>
+      <AnimatedSection delay={0.02}>
         <ProblemSolutionSection />
       </AnimatedSection>
 
-      <AnimatedSection>
+      <AnimatedSection delay={0.05}>
         <ServicesPreview />
       </AnimatedSection>
 
-      <AnimatedSection>
+      <AnimatedSection delay={0.08}>
         <HowIWorkSection />
       </AnimatedSection>
 
-      <AnimatedSection>
+      <AnimatedSection delay={0.11}>
         <ProjectsPreview />
       </AnimatedSection>
 
-      <AnimatedSection>
+      <AnimatedSection delay={0.14}>
         <ContactCTA />
       </AnimatedSection>
     </main>

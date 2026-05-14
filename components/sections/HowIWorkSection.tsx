@@ -18,10 +18,10 @@ function ProcessCard({ step }: { step: ProcessStep }) {
   return (
     <GlassPanel
       padding="sm"
-      className="group h-full border-white/10 bg-card/68 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/35"
+      className="group premium-hover-lift motion-fast h-full border-white/10 bg-card/68 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/35"
     >
       <div className="flex h-full flex-col">
-        <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-200 transition group-hover:border-cyan-300/40 group-hover:bg-cyan-300/16">
+        <div className="motion-fast mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-200 transition group-hover:border-cyan-300/40 group-hover:bg-cyan-300/16">
           <Icon className="h-5 w-5" />
         </div>
 
@@ -48,8 +48,8 @@ export function HowIWorkSection() {
           className="mx-0 max-w-4xl"
         />
 
-        <div className="relative mt-12 hidden lg:block">
-          <div className="absolute left-8 right-8 top-5 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
+        <div className="group/flow relative mt-12 hidden lg:block">
+          <div className="motion-normal absolute left-8 right-8 top-5 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent transition-opacity group-hover/flow:via-cyan-300/80" />
 
           <div className="grid grid-cols-4 gap-5">
             {processSteps.map((step) => (
@@ -63,8 +63,8 @@ export function HowIWorkSection() {
           </div>
         </div>
 
-        <div className="relative mt-10 space-y-4 lg:hidden">
-          <div className="absolute bottom-0 left-4 top-3 w-px bg-gradient-to-b from-cyan-300/65 via-cyan-300/35 to-transparent" />
+        <div className="group/flow relative mt-10 space-y-4 lg:hidden">
+          <div className="motion-normal absolute bottom-0 left-4 top-3 w-px bg-gradient-to-b from-cyan-300/65 via-cyan-300/35 to-transparent transition-opacity group-hover/flow:via-cyan-300/60" />
 
           {processSteps.map((step) => (
             <div key={step.title} className="relative pl-10">

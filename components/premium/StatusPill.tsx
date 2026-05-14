@@ -4,15 +4,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const statusPillVariants = cva(
-  "inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-[11px] font-medium tracking-[0.08em] uppercase transition-colors",
+  "motion-fast inline-flex select-none items-center gap-2 whitespace-nowrap rounded-full border px-3 py-1 font-mono text-[11px] font-medium tracking-[0.08em] uppercase transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/35 focus-visible:ring-offset-1 focus-visible:ring-offset-background",
   {
     variants: {
       tone: {
-        neutral: "border-border bg-white/5 text-muted-foreground",
-        info: "border-cyan-300/30 bg-cyan-300/10 text-cyan-200",
-        success: "border-emerald-300/35 bg-emerald-300/10 text-emerald-200",
-        warning: "border-amber-300/35 bg-amber-300/10 text-amber-200",
-        danger: "border-rose-300/35 bg-rose-300/10 text-rose-200",
+        neutral:
+          "border-border bg-white/5 text-muted-foreground hover:border-cyan-300/30 hover:bg-cyan-300/10 hover:text-cyan-100",
+        info: "border-cyan-300/30 bg-cyan-300/10 text-cyan-200 hover:border-cyan-300/45 hover:bg-cyan-300/14",
+        success:
+          "border-emerald-300/35 bg-emerald-300/10 text-emerald-200 hover:border-emerald-300/45 hover:bg-emerald-300/14",
+        warning:
+          "border-amber-300/35 bg-amber-300/10 text-amber-200 hover:border-amber-300/45 hover:bg-amber-300/14",
+        danger: "border-rose-300/35 bg-rose-300/10 text-rose-200 hover:border-rose-300/45 hover:bg-rose-300/14",
       },
     },
     defaultVariants: {

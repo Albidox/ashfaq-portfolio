@@ -23,7 +23,7 @@ export function TechStackStrip() {
           <p className="font-mono text-[11px] uppercase tracking-[0.11em] text-cyan-200/90">
             Command Center Proof Strip
           </p>
-          <p className="text-xs text-muted-foreground">Core tools used for delivery</p>
+          <p className="motion-normal text-xs text-muted-foreground">Core tools used for delivery</p>
         </div>
 
         <TechMarquee items={techProofItems} />
