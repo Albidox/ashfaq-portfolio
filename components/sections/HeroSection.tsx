@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 
 import { Container } from "@/components/common/Container";
 import { TerminalCard } from "@/components/premium/TerminalCard";
@@ -9,15 +9,14 @@ import { createWhatsAppUrl } from "@/lib/contact-links";
 
 const trustBadges = [
   { icon: ShieldCheck, label: "Backend-first Architecture" },
-  { icon: CheckCircle2, label: "Reliable Delivery" },
-  { icon: Workflow, label: "Automation Mindset" },
+  { icon: CheckCircle2, label: "Testing + QA Mindset" },
 ];
 
 export function HeroSection() {
   const whatsappUrl = createWhatsAppUrl(contact.whatsapp);
 
   return (
-    <section className="relative overflow-hidden border-b border-white/10 py-20 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden border-b border-white/10 py-16 sm:py-20 lg:py-24">
       <div className="premium-grid-bg absolute inset-0 -z-20 opacity-65" />
       <div className="absolute -left-20 top-8 -z-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
       <div className="absolute -bottom-10 right-0 -z-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
@@ -34,7 +33,7 @@ export function HeroSection() {
               Website
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+            <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
               I build Spring Boot APIs, admin dashboards, testing automation, and
               business web tools with a backend-first approach.
             </p>
@@ -74,7 +73,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="animate-in fade-in-0 slide-in-from-bottom-4 duration-700 mx-auto w-full max-w-[540px] lg:max-w-none lg:scale-100">
+          <div className="mx-auto w-full max-w-[500px] animate-in fade-in-0 slide-in-from-bottom-4 duration-700 lg:max-w-none lg:scale-100">
             <div className="animate-pulse-glow rounded-[28px]">
               <TerminalCard className="animate-float-slow" />
             </div>

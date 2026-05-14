@@ -42,7 +42,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <section className="relative overflow-hidden border-b border-white/10 pb-16 pt-20 sm:pb-20 sm:pt-24 lg:pt-28">
+      <section className="relative overflow-hidden border-b border-white/10 pb-10 pt-14 sm:pb-12 sm:pt-16 lg:pb-14 lg:pt-20">
         <div className="premium-grid-bg absolute inset-0 -z-20 opacity-60" />
         <div className="absolute -left-20 top-0 -z-10 h-60 w-60 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute -bottom-24 right-0 -z-10 h-64 w-64 rounded-full bg-accent/22 blur-3xl" />
@@ -94,9 +94,9 @@ export default function ContactPage() {
       </section>
 
       <AnimatedSection delay={0.03}>
-        <section className="py-16 sm:py-20">
+        <section className="py-12 sm:py-16">
           <Container>
-            <div className="mx-auto mb-10 max-w-4xl text-center">
+            <div className="mx-auto mb-8 max-w-4xl text-center">
               <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-cyan-200/90">
                 Contact Methods
               </p>
@@ -143,7 +143,7 @@ export default function ContactPage() {
       </AnimatedSection>
 
       <AnimatedSection delay={0.07}>
-        <section className="border-y border-white/10 bg-background/55 py-16 sm:py-20">
+        <section className="border-y border-white/10 bg-background/55 py-12 sm:py-16">
           <Container>
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <GlassPanel className="motion-normal premium-hover-lift border-white/10 bg-card/70" padding="lg">

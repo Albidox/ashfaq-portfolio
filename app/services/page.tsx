@@ -41,7 +41,7 @@ export default function ServicesPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <section className="relative overflow-hidden border-b border-white/10 pb-12 pt-16 sm:pb-14 sm:pt-20 lg:pb-16 lg:pt-24">
+      <section className="relative overflow-hidden border-b border-white/10 pb-8 pt-14 sm:pb-10 sm:pt-16 lg:pb-12 lg:pt-20">
         <div className="premium-grid-bg absolute inset-0 -z-20 opacity-60" />
         <div className="absolute -left-16 top-0 -z-10 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute -bottom-24 right-0 -z-10 h-64 w-64 rounded-full bg-accent/22 blur-3xl" />
@@ -77,7 +77,7 @@ export default function ServicesPage() {
       </section>
 
       <AnimatedSection delay={0.03}>
-        <section className="pb-16 pt-10 sm:pb-20 sm:pt-12">
+        <section className="pb-14 pt-6 sm:pb-16 sm:pt-8">
           <Container>
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {services.map((service) => (

@@ -6,15 +6,10 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 import { GlassPanel } from "@/components/premium/GlassPanel";
 import { StatusPill } from "@/components/premium/StatusPill";
 import { Button } from "@/components/ui/button";
-import { roadmapProjects, type RoadmapItem, type RoadmapStatus } from "@/data/roadmap";
+import { roadmapProjects, type RoadmapItem } from "@/data/roadmap";
 import { cn } from "@/lib/utils";
 
-const roadmapColumns: { status: RoadmapStatus; heading: string }[] = [
-  { status: "architecture", heading: "Architecture" },
-  { status: "building", heading: "Building" },
-  { status: "testing", heading: "Testing" },
-  { status: "upcoming", heading: "Upcoming" },
-];
+const featuredRoadmapById = ["PRJ-001", "PRJ-002", "PRJ-004"];
 
 function RoadmapCard({
   item,
@@ -70,17 +65,21 @@ function RoadmapCard({
 }
 
 export function ProjectsPreview() {
+  const featuredRoadmapItems = roadmapProjects.filter((item) =>
+    featuredRoadmapById.includes(item.id)
+  );
+
   return (
     <section
       id="roadmap"
-      className="scroll-mt-24 border-y border-white/10 bg-background/55 py-20 lg:scroll-mt-28"
+      className="scroll-mt-24 border-y border-white/10 bg-background/55 py-16 sm:py-18 lg:scroll-mt-28"
     >
       <Container>
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading
             eyebrow="Roadmap"
             title="Honest project roadmap designed to prove real services"
-            description="These builds are practical portfolio milestones focused on proving freelance delivery quality, not claiming finished work too early."
+            description="Featured roadmap items from practical builds in progress. Full project board is available on the projects page."
             align="left"
             className="mx-0 max-w-4xl"
           />
@@ -97,36 +96,8 @@ export function ProjectsPreview() {
           </Button>
         </div>
 
-        <div className="mt-10 hidden gap-5 lg:grid lg:grid-cols-4">
-          {roadmapColumns.map((column) => {
-            const items = roadmapProjects.filter((project) => project.status === column.status);
-
-            return (
-              <div
-                key={column.status}
-                className="rounded-3xl border border-white/10 bg-black/18 p-4"
-              >
-                <div className="mb-4 flex items-center justify-between">
-                  <h3 className="font-mono text-[12px] uppercase tracking-[0.1em] text-cyan-200">
-                    {column.heading}
-                  </h3>
-                  <span className="rounded-full border border-white/10 px-2 py-0.5 font-mono text-[11px] text-muted-foreground">
-                    {items.length}
-                  </span>
-                </div>
-
-                <div className="space-y-4">
-                  {items.map((item) => (
-                    <RoadmapCard key={item.id} item={item} />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-10 space-y-4 lg:hidden">
-          {roadmapProjects.map((item) => (
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {featuredRoadmapItems.map((item) => (
             <RoadmapCard key={item.id} item={item} compact />
           ))}
         </div>

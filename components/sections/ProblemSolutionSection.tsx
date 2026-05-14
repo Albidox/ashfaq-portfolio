@@ -11,37 +11,37 @@ const problems = [
     title: "Slow APIs bottlenecking growth?",
     indicator: "Response delay detected",
     description:
-      "When API responses lag, customers drop off and operations slow down. I help stabilize backend performance so your team can move faster.",
+      "Slow API responses hurt conversions and team speed. I optimize backend flow so your business can operate faster.",
   },
   {
     icon: ShieldCheck,
     title: "Manual testing causing regressions?",
     indicator: "Regression risk high",
     description:
-      "Repeated manual checks miss edge cases under pressure. I set up practical test flows so updates ship with fewer surprises.",
+      "Manual-only testing misses issues under pressure. I add practical test flows so releases stay safer.",
   },
   {
     icon: LayoutDashboard,
     title: "Need a dashboard that actually makes sense?",
     indicator: "Workflow friction",
     description:
-      "Teams lose time when data is scattered or unclear. I design clean admin views that focus on decisions, not clutter.",
+      "Scattered dashboards slow daily work. I build clear admin views that support decisions, not confusion.",
   },
 ];
 
 export function ProblemSolutionSection() {
   return (
-    <section id="problems" className="py-20">
+    <section id="problems" className="py-14 sm:py-16">
       <Container>
         <SectionHeading
           eyebrow="Problems I solve"
           title="Business problems that need clean backend execution"
-          description="Clear technical delivery focused on speed, stability, and practical workflow improvements."
+          description="Focused technical delivery for speed, stability, and cleaner team workflow."
           align="left"
           className="mx-0 max-w-4xl"
         />
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
           {problems.map((problem, index) => (
             <GlassPanel
               key={problem.title}
